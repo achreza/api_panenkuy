@@ -41,3 +41,4 @@ $ php artisan db:seed --class=DummySeeder
 - https://documenter.getpostman.com/view/15292396/UV5RkKeM
 ## DB
 - https://dbdocs.io/shevaathalla/panenskuy# api_panenkuy
+# api_panenkuy
