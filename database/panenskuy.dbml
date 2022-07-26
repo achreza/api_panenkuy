@@ -1,0 +1,39 @@
+Project panenskuy{
+    database_type: 'Mysql'
+    Note: "Database documentation for panenskuy application"
+}
+
+Table users {
+    id int [pk, increment]
+    email varchar
+    password varchar
+    fullname varchar
+    address text
+    role_id int
+}
+Table posts {
+    id int [pk, increment]
+    title varchar    
+    content text
+    contact_person text [note: "json file {contact_name, contact_number}"]
+    location varchar
+    price int
+    expired_time date
+    created_by int
+    picture varchar
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`]   
+}
+
+Table comments{
+    id int [pk, increment]    
+    content text
+    post_id int
+    created_by int
+    created_at timestamp [default: `now()`]
+    updated_at timestamp [default: `now()`] 
+}
+
+Ref: posts.created_by > users.id [delete: cascade]
+Ref: comments.created_by > users.id [delete: cascade]
+Ref: comments.post_id > posts.id [delete:cascade]
